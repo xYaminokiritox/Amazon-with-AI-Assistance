@@ -6,8 +6,8 @@ import { products, categories } from '../data/products';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 const Index = () => {
-  // Take only the first 6 products for featured section
-  const featuredProducts = products.slice(0, 6);
+  // Use all products instead of slicing
+  const allProducts = products;
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -39,19 +39,19 @@ const Index = () => {
         </div>
       </div>
       
-      {/* Featured Products */}
+      {/* Display All Products */}
       <div className="bg-white py-12">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-left">Featured Products</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-left">Explore Our Products</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredProducts.map(product => (
+            {allProducts.map(product => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
         </div>
       </div>
       
-      {/* Deals Carousel */}
+      {/* Deals Carousel (Kept for now, uses all products too) */}
       <div className="container mx-auto py-12 px-4">
         <h2 className="text-2xl md:text-3xl font-bold mb-6 text-left">Today's Deals</h2>
         <Carousel className="w-full">
